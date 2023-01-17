@@ -161,12 +161,20 @@ void Operation::Pass(std::vector<std::string> argv)
 {
     std::cout << "Pass Called!" << std::endl;
 
-    if (argv.size() < 2 || argv.back() != server->getPassword())
+    // if (argv.size() < 2)
+    // {
+    //     ERR_PASSWDMISMATCH();
+    // }
+    // // if (argv.size() < 2 || argv.back() != server->getPassword())
+    // // {
+    // //     ERR_PASSWDMISMATCH();
+    // // }
+    // else
     {
-        ERR_PASSWDMISMATCH();
-    }
-    else
-    {
+                std::cout << "vecter.size = " << argv.size() << std::endl;
+
+        std::cout << "vecter.back = " << argv.back() << std::endl;
+
         std::map<int, CanClient*>::iterator clientIter = server->getClientList().find(setFd);
         if (clientIter != server->getClientList().end())
         {
